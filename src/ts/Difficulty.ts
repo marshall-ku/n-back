@@ -20,11 +20,17 @@ function List(list: (string | number)[], setter: Function) {
 
 export default function Difficulty() {
     let type: string | undefined;
+    let difficulty: number | undefined;
     let count: number | undefined;
     let n: number | undefined;
     const setType = (string: string) => {
         type = string;
         typeList.remove();
+        app.append(difficultyList);
+    };
+    const setDifficulty = (number: number) => {
+        difficulty = number;
+        difficultyList.remove();
         app.append(countList);
     };
     const setCount = (number: number) => {
@@ -34,12 +40,18 @@ export default function Difficulty() {
     };
     const setN = (number: number) => {
         n = number;
-        Question(type as questionType, count as number, n);
+        Question(
+            type as questionType,
+            difficulty as number,
+            count as number,
+            n
+        );
     };
     const typeList = List(
         ["숫자 비교", "덧셈", "뺄셈", "곱셈", "나눗셈"],
         setType
     );
+    const difficultyList = List([1, 2, 3, 4, 5], setDifficulty);
     const countList = List([10, 20, 30, 40, 50], setCount);
     const nList = List([2, 3, 4, 5, 6, 7, 8], setN);
 
