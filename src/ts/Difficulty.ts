@@ -1,4 +1,5 @@
 import { app, resetApp } from "./app";
+import Question from "./Question";
 
 function List(list: (string | number)[], setter: Function) {
     const div = document.createElement("div");
@@ -33,7 +34,7 @@ export default function Difficulty() {
     };
     const setN = (number: number) => {
         n = number;
-        console.log(type, count, n);
+        Question(type as questionType, count as number, n);
     };
     const typeList = List(
         ["숫자 비교", "덧셈", "뺄셈", "곱셈", "나눗셈"],
