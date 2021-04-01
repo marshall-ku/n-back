@@ -6,17 +6,14 @@ function Input() {
 
 export function OXKeyPad(checkAnswer: (answer: boolean) => void) {
     const keyPad = document.createElement("div");
-    const wrapper = document.createElement("div");
     const oButton = document.createElement("button");
     const xButton = document.createElement("button");
 
     oButton.innerText = "O";
     xButton.innerText = "X";
 
-    wrapper.append(oButton);
-    wrapper.append(xButton);
-
-    keyPad.append(wrapper);
+    keyPad.append(oButton);
+    keyPad.append(xButton);
 
     oButton.addEventListener("click", () => {
         checkAnswer(true);
@@ -24,6 +21,8 @@ export function OXKeyPad(checkAnswer: (answer: boolean) => void) {
     xButton.addEventListener("click", () => {
         checkAnswer(false);
     });
+
+    keyPad.classList.add("keypad", "keypad--ox");
 
     return keyPad;
 }
@@ -81,6 +80,8 @@ export function NumberKeyPad(checkAnswer: (answer: number) => void) {
         checkAnswer(+input.value);
         input.value = "";
     });
+
+    keyPad.classList.add("keypad", "keypad--numbers");
 
     return keyPad;
 }

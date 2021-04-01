@@ -109,7 +109,7 @@ export default function Question(
             displayQuestion();
             if (++j === n) {
                 clearInterval(preStart);
-                containerElt.classList.add("intialized");
+                containerElt.classList.add("initialized");
             }
         }, 3000);
     };
@@ -139,6 +139,9 @@ export default function Question(
     };
 
     resetApp();
+
+    containerElt.classList.add("question");
+    displayElt.classList.add("question__display");
 
     containerElt.append(displayElt);
     containerElt.append(keypadElt);
