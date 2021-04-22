@@ -1,0 +1,203 @@
+@font-face {
+    font-family: "Spoqa Han Sans Neo";
+    font-weight: 400;
+    src: local("Spoqa Han Sans Regular"),
+        url(https://cdn.jsdelivr.net/gh/spoqa/spoqa-han-sans@3.1.0/Subset/SpoqaHanSansNeo/SpoqaHanSansNeo-Regular.woff2)
+            format("woff2"),
+        url(https://cdn.jsdelivr.net/gh/spoqa/spoqa-han-sans@3.1.0/Subset/SpoqaHanSansNeo/SpoqaHanSansNeo-Regular.woff)
+            format("woff"),
+        url(https://cdn.jsdelivr.net/gh/spoqa/spoqa-han-sans@3.1.0/Subset/SpoqaHanSansNeo/SpoqaHanSansNeo-Regular.ttf)
+            format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Spoqa Han Sans Neo";
+    font-weight: 700;
+    src: local("Spoqa Han Sans Bold"),
+        url(https://cdn.jsdelivr.net/gh/spoqa/spoqa-han-sans@3.1.0/Subset/SpoqaHanSansNeo/SpoqaHanSansNeo-Bold.woff2)
+            format("woff2"),
+        url(https://cdn.jsdelivr.net/gh/spoqa/spoqa-han-sans@3.1.0/Subset/SpoqaHanSansNeo/SpoqaHanSansNeo-Bold.woff)
+            format("woff"),
+        url(https://cdn.jsdelivr.net/gh/spoqa/spoqa-han-sans@3.1.0/Subset/SpoqaHanSansNeo/SpoqaHanSansNeo-Bold.ttf)
+            format("truetype");
+    font-display: swap;
+}
+
+a,
+article,
+aside,
+audio,
+blockquote,
+body,
+button,
+canvas,
+code,
+div,
+em,
+embed,
+figcaption,
+figure,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+html,
+i,
+iframe,
+img,
+input,
+ins,
+kbd,
+label,
+legend,
+li,
+main,
+mark,
+menu,
+nav,
+object,
+ol,
+output,
+p,
+pre,
+q,
+ruby,
+s,
+samp,
+section,
+small,
+span,
+strong,
+summary,
+sup,
+table,
+tbody,
+td,
+textarea,
+time,
+ul,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    background: 0;
+    outline: 0;
+    color: inherit;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+nav,
+section {
+    display: block;
+}
+picture {
+    display: inline-block;
+}
+body {
+    line-height: 1;
+    -webkit-text-size-adjust: none;
+    overflow-x: hidden;
+    word-break: break-all;
+}
+li,
+ol,
+ul {
+    list-style: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+br {
+    color: transparent;
+}
+
+html {
+    font-family: "Spoqa Han Sans Neo", sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body,
+#app {
+    height: 100%;
+}
+
+#app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#app > h2 {
+    margin-bottom: 30px;
+    line-height: 1.5;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* List */
+.list {
+    box-shadow: 3px 3px 10px 0 rgb(0 0 0 / 60%);
+    background: rgba(179, 136, 255, 0.5);
+    border-radius: 15px;
+    font-size: 1.3rem;
+    border: 1px solid #805acb;
+}
+
+.list > button {
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.list > button:not(:last-child) {
+    border-bottom: 1px dashed #805acb;
+}
+
+/* Question */
+.question__display {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    text-align: center;
+}
+
+/* Keypad */
+.keypad {
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.question.initialized .keypad {
+    visibility: visible;
+    pointer-events: all;
+}
+
+.keypad--ox > button {
+    padding: 15px;
+    background: rgba(179, 136, 255, 0.5);
+    border-radius: 15px;
+    font-size: 1.3rem;
+    border: 1px solid #805acb;
+}
+
+.keypad--ox > button:first-child {
+    margin-right: 20px;
+}
