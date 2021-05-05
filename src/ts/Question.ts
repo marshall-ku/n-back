@@ -114,27 +114,28 @@ export default function Question(
         }, 3000);
     };
     const displayQuestion = () => {
-        const nums = numGenerator(difficulty);
+        const numbers = numGenerator(difficulty);
 
         // Append Answer
-        if (nums.length === 1) {
-            answers.push(nums[0]);
+        if (numbers.length === 1) {
+            answers.push(numbers[0]);
         } else {
-            answers.push(nums[2]);
+            answers.push(numbers[2]);
         }
 
         // Display Question
-        displayString(nums);
+        displayString(numbers);
     };
     const displayString = (arr: number[]) => {
-        const isComparision = arr.length === 1;
+        const isComparison = arr.length === 1;
+
         displayElt.style.color = colors[index % 3];
         console.log(index, count, n);
-        if (!isComparision && index >= count) {
+        if (!isComparison && index >= count) {
             return (displayElt.innerText = "");
         }
         displayElt.innerText = `${
-            isComparision ? arr[0] : `${arr[0]}${symbol}${arr[1]}`
+            isComparison ? arr[0] : `${arr[0]}${symbol}${arr[1]}`
         }`;
     };
 
