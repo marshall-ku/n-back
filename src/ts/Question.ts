@@ -1,5 +1,6 @@
 import { app, resetApp } from "./app";
 import { OXKeyPad, NumberKeyPad } from "./Keypad";
+import Result from "./Result";
 
 function randomNumber(max: number) {
     return Math.round(Math.random() * (max - 1)) + 1;
@@ -64,6 +65,8 @@ export default function Question(
     const symbol = ["", "+", "-", "×", "÷"][typeIndex];
     const colors = ["blue", "red", "green"];
 
+    let startTime: number;
+
     const checkSame = (answer: boolean) => {
         const correction = answer === (answers[index - n] === answers[index]);
 
@@ -73,6 +76,7 @@ export default function Question(
 
         if (++index === count + n) {
             console.log(correctCount);
+            Result(correctCount, count, startTime);
         } else {
             displayQuestion();
         }
@@ -86,6 +90,7 @@ export default function Question(
 
         if (++index === count + n) {
             console.log(correctCount);
+            Result(correctCount, n, startTime);
         } else {
             displayQuestion();
         }
@@ -110,6 +115,7 @@ export default function Question(
             if (++j === n) {
                 clearInterval(preStart);
                 containerElt.classList.add("initialized");
+                startTime = new Date().getTime();
             }
         }, 3000);
     };
