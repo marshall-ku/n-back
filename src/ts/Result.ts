@@ -47,6 +47,7 @@ export default function Result(
     );
 
     // Restart Button
+    restartButton.innerText = "다시 시작";
     restartButton.addEventListener("click", Difficulty);
     restartContainer.append(restartButton);
 
