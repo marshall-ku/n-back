@@ -75,7 +75,6 @@ export default function Question(
         }
 
         if (++index === count + n) {
-            console.log(correctCount);
             Result(correctCount, count, startTime);
         } else {
             displayQuestion();
@@ -89,7 +88,6 @@ export default function Question(
         }
 
         if (++index === count + n) {
-            console.log(correctCount);
             Result(correctCount, n, startTime);
         } else {
             displayQuestion();
@@ -136,7 +134,6 @@ export default function Question(
         const isComparison = arr.length === 1;
 
         displayElt.style.color = colors[index % 3];
-        console.log(index, count, n);
         if (!isComparison && index >= count) {
             return (displayElt.innerText = "");
         }
