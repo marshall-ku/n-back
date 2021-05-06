@@ -88,7 +88,7 @@ export default function Question(
         }
 
         if (++index === count + n) {
-            Result(correctCount, n, startTime);
+            Result(correctCount, count, startTime);
         } else {
             displayQuestion();
         }
