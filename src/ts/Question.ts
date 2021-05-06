@@ -113,6 +113,7 @@ export default function Question(
             if (++j === n) {
                 clearInterval(preStart);
                 containerElt.classList.add("initialized");
+                keypadElt.querySelector("input")?.focus();
                 startTime = new Date().getTime();
             }
         }, 3000);

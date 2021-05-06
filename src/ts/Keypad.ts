@@ -1,9 +1,3 @@
-function Input() {
-    const input = document.createElement("input");
-
-    return input;
-}
-
 export function OXKeyPad(checkAnswer: (answer: boolean) => void) {
     const keyPad = document.createElement("div");
     const oButton = document.createElement("button");
@@ -29,7 +23,7 @@ export function OXKeyPad(checkAnswer: (answer: boolean) => void) {
 
 export function NumberKeyPad(checkAnswer: (answer: number) => void) {
     const keyPad = document.createElement("form");
-    const input = Input();
+    const input = document.createElement("input");
     const wrapper = document.createElement("div");
     const buttons = [
         document.createElement("button"),
@@ -46,6 +40,12 @@ export function NumberKeyPad(checkAnswer: (answer: number) => void) {
         document.createElement("button"),
         document.createElement("button"),
     ];
+    const touchable = "ontouchstart" in window;
+
+    input.readOnly = touchable;
+    input.autofocus = !touchable;
+
+    input.type = "number";
 
     buttons.forEach((button, i) => {
         if (i <= 9) {
