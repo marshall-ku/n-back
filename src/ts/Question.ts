@@ -139,7 +139,7 @@ export default function Question(
             return (displayElt.innerText = "");
         }
         displayElt.innerText = `${
-            isComparison ? arr[0] : `${arr[0]}${symbol}${arr[1]}`
+            isComparison ? arr[0] : `${arr[0]} ${symbol} ${arr[1]}`
         }`;
     };
 

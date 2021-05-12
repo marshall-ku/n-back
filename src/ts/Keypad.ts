@@ -38,27 +38,26 @@ export function NumberKeyPad(checkAnswer: (answer: number) => void) {
         document.createElement("button"),
         document.createElement("button"),
         document.createElement("button"),
-        document.createElement("button"),
     ];
     const touchable = "ontouchstart" in window;
 
     input.readOnly = touchable;
     input.autofocus = !touchable;
-
     input.type = "number";
+    input.classList.add("keypad__input");
 
     buttons.forEach((button, i) => {
-        if (i <= 9) {
-            button.innerText = `${i}`;
+        if (i <= 8) {
+            button.innerText = `${i + 1}`;
             button.addEventListener("click", () => {
-                input.value += `${i}`;
+                input.value += `${i + 1}`;
             });
-        } else if (i === 10) {
+        } else if (i === 9) {
             button.innerText = "del";
             button.addEventListener("click", () => {
                 input.value = input.value.substr(0, input.value.length - 1);
             });
-        } else if (i === 11) {
+        } else if (i === 10) {
             button.innerText = "0";
             button.addEventListener("click", () => {
                 input.value += "0";
@@ -67,13 +66,11 @@ export function NumberKeyPad(checkAnswer: (answer: number) => void) {
             button.innerText = "OK";
         }
 
-        button.type = `${i <= 11 ? "button" : "submit"}`;
+        button.classList.add("keypad__key");
+        button.type = `${i !== 11 ? "button" : "submit"}`;
 
         wrapper.append(button);
     });
-
-    keyPad.append(input);
-    keyPad.append(wrapper);
 
     keyPad.addEventListener("submit", (e) => {
         e.preventDefault();
@@ -81,7 +78,10 @@ export function NumberKeyPad(checkAnswer: (answer: number) => void) {
         input.value = "";
     });
 
+    wrapper.classList.add("keypad__keys");
     keyPad.classList.add("keypad", "keypad--numbers");
+
+    keyPad.append(input, wrapper);
 
     return keyPad;
 }
