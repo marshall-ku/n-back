@@ -207,9 +207,17 @@ body,
     pointer-events: all;
 }
 
+.keypad--ox {
+    margin: auto;
+}
+
 .keypad--ox > button {
-    padding: 15px;
+    display: inline-flex;
+    width: 3.5rem;
+    height: 3.5rem;
     background: rgba(179, 136, 255, 0.5);
+    justify-content: center;
+    align-items: center;
     border-radius: 15px;
     font-size: 1.3rem;
     border: 1px solid #805acb;
