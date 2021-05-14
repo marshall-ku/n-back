@@ -262,3 +262,15 @@ body,
 .keypad--numbers .keypad__key:nth-child(3n) {
     margin-right: 0;
 }
+
+@media (prefers-color-scheme: dark) {
+    html {
+        background: #121212;
+        color: #f1f1f1;
+    }
+
+    button,
+    input {
+        color: #f1f1f1;
+    }
+}
