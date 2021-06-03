@@ -135,7 +135,7 @@ export default function Question(
         const isComparison = arr.length === 1;
 
         displayElt.style.color = colors[index % 3];
-        if (!isComparison && index >= count) {
+        if (index >= count) {
             return (displayElt.innerText = `${count + n - index - 1}개 남음`);
         }
         displayElt.innerText = `${
