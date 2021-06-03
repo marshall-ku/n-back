@@ -1,0 +1,310 @@
+@font-face {
+    font-family: "Spoqa Han Sans Neo";
+    font-weight: 400;
+    src: local("Spoqa Han Sans Regular"),
+        url(https://cdn.jsdelivr.net/gh/spoqa/spoqa-han-sans@3.1.0/Subset/SpoqaHanSansNeo/SpoqaHanSansNeo-Regular.woff2)
+            format("woff2"),
+        url(https://cdn.jsdelivr.net/gh/spoqa/spoqa-han-sans@3.1.0/Subset/SpoqaHanSansNeo/SpoqaHanSansNeo-Regular.woff)
+            format("woff"),
+        url(https://cdn.jsdelivr.net/gh/spoqa/spoqa-han-sans@3.1.0/Subset/SpoqaHanSansNeo/SpoqaHanSansNeo-Regular.ttf)
+            format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Spoqa Han Sans Neo";
+    font-weight: 700;
+    src: local("Spoqa Han Sans Bold"),
+        url(https://cdn.jsdelivr.net/gh/spoqa/spoqa-han-sans@3.1.0/Subset/SpoqaHanSansNeo/SpoqaHanSansNeo-Bold.woff2)
+            format("woff2"),
+        url(https://cdn.jsdelivr.net/gh/spoqa/spoqa-han-sans@3.1.0/Subset/SpoqaHanSansNeo/SpoqaHanSansNeo-Bold.woff)
+            format("woff"),
+        url(https://cdn.jsdelivr.net/gh/spoqa/spoqa-han-sans@3.1.0/Subset/SpoqaHanSansNeo/SpoqaHanSansNeo-Bold.ttf)
+            format("truetype");
+    font-display: swap;
+}
+
+*,
+::before,
+::after {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+a,
+article,
+aside,
+audio,
+blockquote,
+body,
+button,
+canvas,
+code,
+div,
+em,
+embed,
+figcaption,
+figure,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+html,
+i,
+iframe,
+img,
+input,
+ins,
+kbd,
+label,
+legend,
+li,
+main,
+mark,
+menu,
+nav,
+object,
+ol,
+output,
+p,
+pre,
+q,
+ruby,
+s,
+samp,
+section,
+small,
+span,
+strong,
+summary,
+sup,
+table,
+tbody,
+td,
+textarea,
+time,
+ul,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    background: 0;
+    outline: 0;
+    color: inherit;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+nav,
+section {
+    display: block;
+}
+picture {
+    display: inline-block;
+}
+body {
+    line-height: 1;
+    -webkit-text-size-adjust: none;
+    overflow-x: hidden;
+    word-break: break-all;
+}
+li,
+ol,
+ul {
+    list-style: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+br {
+    color: transparent;
+}
+
+html {
+    font-family: "Spoqa Han Sans Neo", sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body,
+#app {
+    height: 100%;
+}
+
+#app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#app > h2 {
+    margin-bottom: 30px;
+    line-height: 1.5;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* List */
+.list {
+    box-shadow: 3px 3px 10px 0 rgb(0 0 0 / 60%);
+    background: rgba(179, 136, 255, 0.5);
+    border-radius: 15px;
+    font-size: 1.3rem;
+    border: 1px solid #805acb;
+}
+
+.list > button {
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.list > button:not(:last-child) {
+    border-bottom: 1px dashed #805acb;
+}
+
+/* Question */
+.question {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.question__display {
+    margin: auto 0 10px;
+    font-size: 2rem;
+    text-align: center;
+}
+
+/* Keypad */
+.keypad {
+    visibility: hidden;
+    pointer-events: none;
+    margin-top: auto;
+}
+
+.question.initialized .keypad {
+    visibility: visible;
+    pointer-events: all;
+}
+
+.keypad--ox {
+    margin: auto;
+}
+
+.keypad--ox > button {
+    display: inline-flex;
+    width: 3.5rem;
+    height: 3.5rem;
+    background: rgba(179, 136, 255, 0.5);
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    font-size: 1.3rem;
+    border: 1px solid #805acb;
+}
+
+.keypad--ox > button:first-child {
+    margin-right: 20px;
+}
+
+.keypad__input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    line-height: 2;
+    text-align: center;
+}
+
+.keypad__keys {
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 10px;
+    max-width: 680px;
+}
+
+.keypad--numbers .keypad__key {
+    width: calc((100% - 20px) / 3);
+    margin: 0 10px 10px 0;
+    padding: calc(20px + 1vh) 15px;
+    background: #b388ff80;
+    font-size: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.keypad--numbers .keypad__key:active {
+    box-shadow: inset 5px 5px 5px 0px rgba(0, 0, 0, 0.3);
+}
+
+.keypad--numbers .keypad__key:nth-child(3n) {
+    margin-right: 0;
+}
+
+/* Result */
+.result {
+    text-align: center;
+}
+
+.result > *:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.result h1 {
+    font-size: 2.3rem;
+}
+
+.result span {
+    display: inline-block;
+    margin: 0 5px 5px 0;
+}
+
+.result b {
+    display: inline-block;
+    padding: 3px 7px;
+    border-radius: 0.5rem;
+    background: #b388ff80;
+}
+
+.result button {
+    padding: 10px;
+    box-shadow: 3px 3px 10px 0 rgb(0 0 0 / 60%);
+    background: rgba(179, 136, 255, 0.5019607843137255);
+    border-radius: 15px;
+    font-size: 1.3rem;
+    border: 1px solid #805acb;
+}
+
+@media (prefers-color-scheme: dark) {
+    html {
+        background: #121212;
+        color: #f1f1f1;
+    }
+
+    button,
+    input {
+        color: #f1f1f1;
+    }
+}
