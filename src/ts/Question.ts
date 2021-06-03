@@ -136,7 +136,7 @@ export default function Question(
 
         displayElt.style.color = colors[index % 3];
         if (!isComparison && index >= count) {
-            return (displayElt.innerText = "");
+            return (displayElt.innerText = `${count + n - index - 1}개 남음`);
         }
         displayElt.innerText = `${
             isComparison ? arr[0] : `${arr[0]} ${symbol} ${arr[1]}`
