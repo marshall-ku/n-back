@@ -63,6 +63,5 @@ export default function Difficulty() {
 
     title.innerText = "진행할 게임을 선택해주세요";
     resetApp();
-    app.append(title);
-    app.append(typeList);
+    app.append(title, typeList);
 }

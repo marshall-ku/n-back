@@ -6,8 +6,7 @@ export function OXKeyPad(checkAnswer: (answer: boolean) => void) {
     oButton.innerText = "O";
     xButton.innerText = "X";
 
-    keyPad.append(oButton);
-    keyPad.append(xButton);
+    keyPad.append(oButton, xButton);
 
     oButton.addEventListener("click", () => {
         checkAnswer(true);

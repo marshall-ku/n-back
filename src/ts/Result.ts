@@ -51,9 +51,7 @@ export default function Result(
     restartButton.addEventListener("click", Difficulty);
     restartContainer.append(restartButton);
 
-    containerElt.append(title);
-    containerElt.append(correctRatio);
-    containerElt.append(restartContainer);
+    containerElt.append(title, correctRatio, restartContainer);
 
     resetApp();
     app.append(containerElt);

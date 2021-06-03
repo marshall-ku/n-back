@@ -148,8 +148,7 @@ export default function Question(
     containerElt.classList.add("question");
     displayElt.classList.add("question__display");
 
-    containerElt.append(displayElt);
-    containerElt.append(keypadElt);
+    containerElt.append(displayElt, keypadElt);
     app.append(containerElt);
 
     initializeQuestion();
