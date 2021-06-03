@@ -6,23 +6,38 @@ export default function Result(
     count: number,
     startTime: number
 ) {
-    const now = new Date().getTime();
+    const secondTook = (new Date().getTime() - startTime) / 1000;
     const containerElt = document.createElement("div");
     const title = document.createElement("h1");
     const timeTook = document.createElement("div");
     const correctRatio = document.createElement("div");
-    const text1 = document.createTextNode("오답 : ");
-    const span1 = document.createElement("span");
-    const unit1 = document.createTextNode("개");
-    const text2 = document.createTextNode("문제 : ");
-    const span2 = document.createElement("span");
-    const unit2 = document.createTextNode("개");
-    const text3 = document.createTextNode("문제당 : ");
-    const span3 = document.createElement("span");
-    const unit3 = document.createTextNode("초");
     const restartContainer = document.createElement("div");
     const restartButton = document.createElement("button");
-    const secondTook = (now - startTime) / 1000;
+
+    const createResultElt = (
+        text: string,
+        content: string,
+        unit: string
+    ): HTMLSpanElement => {
+        const resultElt = document.createElement("span");
+        const textElt = document.createTextNode(text);
+        const contentElt = document.createElement("b");
+        const unitElt = document.createTextNode(unit);
+
+        contentElt.innerText = content;
+
+        resultElt.append(textElt, contentElt, unitElt);
+
+        return resultElt;
+    };
+
+    const result1 = createResultElt("오답 : ", `${count - correctCount}`, "개");
+    const result2 = createResultElt("문제 : ", `${count}`, "개");
+    const result3 = createResultElt(
+        "문제당 : ",
+        (secondTook / count).toFixed(2),
+        "초"
+    );
 
     // Title
     title.innerText = "끝났습니다!";
@@ -31,25 +46,14 @@ export default function Result(
     timeTook.innerText = `모든 문제를 푸는데 ${secondTook.toFixed(
         2
     )}초가 걸리셨네요.`;
-    span1.innerText = `${count - correctCount}`;
-    span2.innerText = `${count}`;
-    span3.innerText = (secondTook / count).toFixed(2);
-    correctRatio.append(
-        text1,
-        span1,
-        unit1,
-        text2,
-        span2,
-        unit2,
-        text3,
-        span3,
-        unit3
-    );
+    correctRatio.append(result1, result2, result3);
 
     // Restart Button
     restartButton.innerText = "다시 시작";
     restartButton.addEventListener("click", Difficulty);
     restartContainer.append(restartButton);
+
+    containerElt.classList.add("result");
 
     containerElt.append(title, correctRatio, restartContainer);
 
